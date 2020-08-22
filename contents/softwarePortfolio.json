@@ -1,0 +1,38 @@
+[
+  {
+    "title": "ProductScraper",
+    "url": "https://github.com/brucegalvez/productScraper",
+    "description": {
+      "en": "A scraper that gets product data from its website. It can be set to go and scrape a URL directly or to search a product on Google and scraping the first result.",
+      "es": "asdadsd"
+    },
+    "tags": ["javascript"]
+  },
+  {
+    "title": "Intranet",
+    "url": "https://github.com/brucegalvez/Backend-Team-Management-App",
+    "description": {
+      "en": "REST API made in Python for managing the teams of students of Pachaqtec Coding School, made as part of the final project for the specialization program in Backend 2019-2020 of the same school.",
+      "es": "asdadsd"
+    },
+    "tags": ["python", "flask"]
+  },
+  {
+    "title": "Landing Page",
+    "url": "https://github.com/brucegalvez/fbruceing.com",
+    "description": {
+      "en": "Landing page for steel structure company, written in HTML, SCSS and JS",
+      "es": "asdadsd"
+    },
+    "tags": ["javascript", "html", "sass"]
+  },
+  {
+    "title": "This site :D",
+    "url": "https://github.com/brucegalvez/brucegalvez.com",
+    "description": {
+      "en": "Landing page for steel structure company, written in HTML, SCSS and JS",
+      "es": "asdadsd"
+    },
+    "tags": ["javascript", "react", "tailwind"]
+  }
+]

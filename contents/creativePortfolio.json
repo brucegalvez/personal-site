@@ -1,0 +1,42 @@
+[
+  {
+    "imgSrc": "/img/brochure.png",
+    "title": "Steel Structure Co. Brochure",
+    "url": "https://www.behance.net/gallery/91114789/Bruce-Estructuras-Metalicas-Brochure",
+    "description": {
+      "en": "Brochure made for a steel structure company",
+      "es": "asd asd"
+    },
+    "tags": ["illustrator", "graphic design"]
+  },
+  {
+    "imgSrc": "/img/chaman.jpg",
+    "title": "Chaman",
+    "url": "https://www.behance.net/gallery/22125679/Chaman",
+    "description": {
+      "en": "Pictures taken of 'Chamán', an 'emoliente' maker that works on the streets of Surco, Lima. He is specialized on medical 'emoliente' (a variant from a traditional peruvian beverage).",
+      "es": "asdasda asda sd asda "
+    },
+    "tags": ["lightroom", "photography"]
+  },
+  {
+    "imgSrc": "/img/wariobros.jpg",
+    "title": "Wario Bros in Orion",
+    "url": "https://www.behance.net/gallery/46667585/Wario-Bros-in-Orion",
+    "description": {
+      "en": "Illustration of Wario and Waluigi (from the Mario-Nintendo franchise) in an Orion bus, a well-known transport company in Peru for having really bad service, driving recklessly and not respecting the transit laws. ",
+      "es": "asd"
+    },
+    "tags": ["illustrator", "ilustration"]
+  },
+  {
+    "imgSrc": "/img/islacomun.png",
+    "title": "Isla Comun. logo",
+    "url": "https://www.behance.net/gallery/56268541/Isla-Comun-Logo",
+    "description": {
+      "en": "Logo made for our own marketing agency in Perú.",
+      "es": "asd"
+    },
+    "tags": ["illustrator", "branding"]
+  }
+]
