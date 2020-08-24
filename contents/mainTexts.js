@@ -3,12 +3,14 @@ const name = "Rodrigo Bruce Galvez.";
 export default {
   siteTitle: {
     es: `${name} | Desarrollador Web Full Stack y Comunicador`,
-    en: `${name} | Fullstack Web Developer and Communicator`,
+    en: `${name} | Fullstack Web Developer and Designer`,
   },
-  sectionTitles: {
-    es: ["Sobre mí", "Software", "Creativos", "Contáctame"],
-    en: ["About me", "Software", "Creative", "Get in Touch"],
-  },
+  sectionTitles: [
+    { id: "aboutMe", es: "Sobre mí", en: "About me" },
+    { id: "software", es: "Software", en: "Software" },
+    { id: "creative", es: "Creativo", en: "Creative" },
+    { id: "contact", es: "Contáctame", en: "Get In Touch" },
+  ],
   name: `${name}`,
   labels: {
     es: [
@@ -18,16 +20,15 @@ export default {
       "papá de Marty (mi gato).",
       "tu padre (NOOOOOOOOOOOOOOOO).",
       "fan de los Borbotones.",
-      "una taza, una tetera, una cuchara y un cucharón.",
+      "la comadreja.",
     ],
     en: [
       "I am ",
       "a Fullstack Web Developer.",
-      "a Communicator.",
+      "a Marketer and Designer.",
       "the proud father of Marty (my cat).",
       "a Be Sharp's fanatic.",
       "your father (NOOOOOOOOOOOOOOOO).",
-      "How to Basic.",
       "the walrus. Goo goo g'joob.",
     ],
   },

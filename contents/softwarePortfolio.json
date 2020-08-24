@@ -1,38 +1,38 @@
 [
   {
-    "title": "ProductScraper",
-    "url": "https://github.com/brucegalvez/productScraper",
+    "title": "Product Data Scraper",
+    "url": "https://github.com/brucegalvez/product-data-scraper",
     "description": {
-      "en": "A scraper that gets product data from its website. It can be set to go and scrape a URL directly or to search a product on Google and scraping the first result.",
-      "es": "asdadsd"
+      "en": "A simple scraper that does a Google Search and gets product data from the first page in the results.",
+      "es": "Un simple scraper que realiza una búsqueda en Google Search y extrae la data de la primera página en los resultados."
     },
-    "tags": ["javascript"]
+    "tags": ["JS", "Puppeteer", "Cheerio"]
   },
   {
-    "title": "Intranet",
-    "url": "https://github.com/brucegalvez/Backend-Team-Management-App",
+    "title": "RESTfull Service for Team Management App",
+    "url": "https://github.com/brucegalvez/team-management-server",
     "description": {
-      "en": "REST API made in Python for managing the teams of students of Pachaqtec Coding School, made as part of the final project for the specialization program in Backend 2019-2020 of the same school.",
-      "es": "asdadsd"
+      "en": "A RESTfull service for managing student teams, built as the final project of a backend coding bootcamp.",
+      "es": "Un servicio RESTfull para gestionar equipos de estudiantes, realizado como proyecto final de un coding bootcamp de backend."
     },
-    "tags": ["python", "flask"]
+    "tags": ["Python", "Flask", "Mongoose"]
   },
   {
     "title": "Landing Page",
     "url": "https://github.com/brucegalvez/fbruceing.com",
     "description": {
-      "en": "Landing page for steel structure company, written in HTML, SCSS and JS",
-      "es": "asdadsd"
+      "en": "A landing page for a steel structure company, built with Vanilla JS, HTML, and SCSS with BEM methodology",
+      "es": "Un landing page para una empresa de estructuras de acero, construida con Vanilla JS, HTML y SCSS con metodología BEM"
     },
-    "tags": ["javascript", "html", "sass"]
+    "tags": ["JS", "HTML", "SCSS"]
   },
   {
-    "title": "This site :D",
-    "url": "https://github.com/brucegalvez/brucegalvez.com",
+    "title": "Personal Website",
+    "url": "https://github.com/brucegalvez/brucegalvez.com-v2",
     "description": {
-      "en": "Landing page for steel structure company, written in HTML, SCSS and JS",
-      "es": "asdadsd"
+      "en": "This website :D The second version of my personal website, a single page application.",
+      "es": "Esta website :D La segunda versión de mi website personal, una aplicación de una sola página."
     },
-    "tags": ["javascript", "react", "tailwind"]
+    "tags": ["React", "Next.js", "Tailwind"]
   }
 ]
