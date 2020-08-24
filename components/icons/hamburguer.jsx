@@ -1,9 +1,10 @@
-const HamburguerIcon = ({ open, setOpen, className }) => {
+const HamburguerIcon = ({ isOpen, openFunc, className, style }) => {
   return (
     <div
       className={`inline-block cursor-pointer ${className}`}
+      style={style}
       onClick={() => {
-        setOpen(!open);
+        openFunc(!isOpen);
       }}
     >
       {[
@@ -16,7 +17,7 @@ const HamburguerIcon = ({ open, setOpen, className }) => {
             key={line}
             className={`
             w-8 h-1 bg-white my-1 transform duration-400
-            ${open ? line : ""}`}
+            ${isOpen ? line : ""}`}
           ></div>
         );
       })}

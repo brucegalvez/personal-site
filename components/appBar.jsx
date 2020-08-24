@@ -1,27 +1,22 @@
 import Button from "./button";
-const AppBar = ({ scrollToSection, sections }) => (
+import Link from "next/link";
+
+const AppBar = ({ sections, language }) => (
   <>
     <nav
       className="
-      fixed z-10 h-16 w-full border-0
-      border-white text-white
-      hidden items-center justify-end
-      bg-gray-600 bg-opacity-75
-      md:flex
-      shadow-xl
-      hover:bg-opacity-100 hover:bg-gray-700 hover:shadow-md
-      transform duration-200"
+      fixed z-10 h-16 w-full md:flex hidden items-center justify-end
+      bg-gray-600 bg-opacity-75 hover:bg-opacity-100 hover:bg-gray-700 
+      border-0 shadow-xl hover:shadow-md transform duration-200"
     >
       <div className="flex flex-row pr-3 items-center justify-end">
         <span className="flex-grow"></span>
-        {sections.map((section) => (
-          <a
-            key={section}
-            className="mx-4 hover:underline cursor-pointer"
-            onClick={() => scrollToSection("about")}
-          >
-            {section}
-          </a>
+        {sections.map(({ id, en, es }) => (
+          <Link key={id} href="#[id]" as={`/#${id}`}>
+            <a className="mx-4 hover:underline">
+              {language === "en" ? en : es}
+            </a>
+          </Link>
         ))}
         <Button text={"Resume"} action={() => window.open("cv.pdf")} />
       </div>
