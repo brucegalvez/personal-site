@@ -25,28 +25,16 @@ function debounce(fn, ms) {
 }
 
 const HomePage = () => {
-  // let prevScrollpos = window.pageYOffset;
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [language, setLanguage] = useState("es");
+  const [currentLabel, setCurrenLabel] = useState(1);
+  const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 
   const scrollToSection = (id) => {
     document.querySelector("." + id).scrollIntoView({
       behavior: "smooth",
     });
   };
-
-  // window.onscroll = function () {
-  //   let currentScrollPos = window.pageYOffset;
-  //   if (prevScrollpos > currentScrollPos) {
-  //     document.querySelector(".navBar").style.top = "0";
-  //   } else {
-  //     document.querySelector(".navBar").style.top = "-4rem";
-  //   }
-  //   prevScrollpos = currentScrollPos;
-  // };
-
-  const [open, setOpen] = useState(false);
-  const [language, setLanguage] = useState("es");
-  const [currentLabel, setCurrenLabel] = useState(1);
-  const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
@@ -56,7 +44,7 @@ const HomePage = () => {
       });
     }, 100);
 
-    if (dimensions.width > 768) setOpen(false);
+    if (dimensions.width > 768) setIsDrawerOpen(false);
     window.addEventListener("resize", debouncedHandleResize);
     return (_) => {
       window.removeEventListener("resize", debouncedHandleResize);
@@ -64,7 +52,7 @@ const HomePage = () => {
   });
 
   return (
-    <>
+    <div className="bg-gray-800 font-mono text-gray-200">
       <Head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -72,15 +60,21 @@ const HomePage = () => {
         <title>{contents.mainTexts.siteTitle[language]}</title>
       </Head>
       <AppBar
-        scrollToSection={scrollToSection}
-        open={open}
-        setOpen={setOpen}
-        sections={contents.mainTexts.sectionTitles[language]}
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
+        sections={contents.mainTexts.sectionTitles}
+        language={language}
+      />
+      <Drawer
+        isDrawerOpen={isDrawerOpen}
+        sections={contents.mainTexts.sectionTitles}
+        language={language}
       />
       <HamburguerIcon
-        open={open}
-        setOpen={setOpen}
-        className="mr-8 md:hidden fixed right-0 z-20 top-4"
+        isOpen={isDrawerOpen}
+        openFunc={setIsDrawerOpen}
+        className="mr-8 md:hidden fixed right-0 z-20"
+        style={{ top: "1rem" }}
       />
       <div
         className="flex flex-col fixed z-20"
@@ -89,8 +83,8 @@ const HomePage = () => {
         {["es", "en"].map((option) => (
           <button
             className="rounded-full text-xs uppercase border-gray-200 border-2
-            hover:bg-gray-200 hover:text-gray-800 transform duration-200
-            h-8 w-8 mb-4 flex items-center justify-center"
+              hover:bg-gray-200 hover:text-gray-800 transform duration-200
+              h-8 w-8 mb-4 flex items-center justify-center"
             key={option}
             onClick={() => setLanguage(option)}
           >
@@ -98,50 +92,40 @@ const HomePage = () => {
           </button>
         ))}
       </div>
-
-      <Drawer
-        open={open}
-        sections={contents.mainTexts.sectionTitles[language]}
-      />
-
       <Section centered>
-        <div className="min-w-full">
-          <p>{contents.mainTexts.mastheadTexts.hello[language]}</p>
-          <div className="max-w-6xl md:h-64 sm:h-40 h-40">
-            <h1
-              className={`md:text-5xl sm:text-3xl text-2xl`}
-              onMouseOver={() => {
-                setCurrenLabel(
-                  currentLabel == contents.mainTexts.labels[language].length - 1
-                    ? 1
-                    : currentLabel + 1
-                );
-              }}
-            >
-              {contents.mainTexts.name}
-              <br></br>
-              {contents.mainTexts.labels[language][0] +
-                contents.mainTexts.labels[language][currentLabel]}
-            </h1>
-          </div>
-          <Button text={contents.mainTexts.mastheadTexts.cta[language]} />
-          {/* <button
-            className="py-2 px-4 mt-8 w-40 bg-transparent transition duration-200
-              cursor-pointer border-2 border-white hover:bg-gray-600"
-            // onClick={(location.href = "mailto:rodrigobrucegalvez@gmail.com")}
+        <p>{contents.mainTexts.mastheadTexts.hello[language]}</p>
+        <div className="max-w-6xl md:h-64 sm:h-40 h-40">
+          <h1
+            className={`md:text-5xl sm:text-3xl text-2xl`}
+            onMouseOver={() => {
+              setCurrenLabel(
+                currentLabel == contents.mainTexts.labels[language].length - 1
+                  ? 1
+                  : currentLabel + 1
+              );
+            }}
           >
-            {contents.mainTexts.mastheadTexts.cta[language]}
-          </button> */}
+            {contents.mainTexts.name}
+            <br></br>
+            {contents.mainTexts.labels[language][0] +
+              contents.mainTexts.labels[language][currentLabel]}
+          </h1>
         </div>
+        <Button
+          text={contents.mainTexts.mastheadTexts.cta[language]}
+          action={() => {
+            window.open("mailto:rodrigobrucegalvez@gmail.com");
+          }}
+        />
       </Section>
 
-      <Section centered>
+      <Section centered id={contents.mainTexts.sectionTitles[0].id}>
         <div
           className="rounded overflow-hidden shadow-xl
           p-12 sm:max-w-4xl max-w-sm transition duration-200 hover:shadow-lg"
         >
           <h2 className="md:text-2xl text-xl">
-            {contents.mainTexts.sectionTitles[language][0]}
+            {contents.mainTexts.sectionTitles[0][language]}
           </h2>
           <p className="leading-6 text-gray-400 text-base">
             {contents.mainTexts.aboutMe[language]}
@@ -149,9 +133,9 @@ const HomePage = () => {
         </div>
       </Section>
 
-      <Section centered>
+      <Section centered id={contents.mainTexts.sectionTitles[1].id}>
         <h2 className="md:text-2xl text-xl mb-4 text-center">
-          {contents.mainTexts.sectionTitles[language][1]}
+          {contents.mainTexts.sectionTitles[1][language]}
         </h2>
         <div
           className="
@@ -171,9 +155,9 @@ const HomePage = () => {
         </div>
       </Section>
 
-      <Section centered>
+      <Section centered id={contents.mainTexts.sectionTitles[2].id}>
         <h2 className="md:text-2xl text-xl mb-4 text-center">
-          {contents.mainTexts.sectionTitles[language][2]}
+          {contents.mainTexts.sectionTitles[2][language]}
         </h2>
         <div
           className="
@@ -194,9 +178,9 @@ const HomePage = () => {
         </div>
       </Section>
 
-      <Section centered>
+      <Section centered id={contents.mainTexts.sectionTitles[3].id}>
         <h2 className="mb-4 text-center">
-          {contents.mainTexts.sectionTitles[language][3]}
+          {contents.mainTexts.sectionTitles[3][language]}
         </h2>
         <div className="grid gap-4 grid-cols-4">
           <IconButton href={"https://twitter.com/brucegalvez"} size="12">
@@ -217,10 +201,10 @@ const HomePage = () => {
         </div>
       </Section>
 
-      <footer className="text-gray-600 text-sm flex justify-center">
+      <footer className="mb-4 text-gray-600 text-sm flex justify-center">
         <p>{contents.mainTexts.footer[language]}</p>
       </footer>
-    </>
+    </div>
   );
 };
 
