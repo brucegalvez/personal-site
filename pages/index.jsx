@@ -26,7 +26,7 @@ function debounce(fn, ms) {
 
 const HomePage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [language, setLanguage] = useState("es");
+  const [language, setLanguage] = useState("en");
   const [currentLabel, setCurrenLabel] = useState(1);
   const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
 
@@ -93,36 +93,38 @@ const HomePage = () => {
         ))}
       </div>
       <Section centered>
-        <p>{contents.mainTexts.mastheadTexts.hello[language]}</p>
-        <div className="max-w-6xl md:h-64 sm:h-40 h-40">
-          <h1
-            className={`md:text-5xl sm:text-3xl text-2xl`}
-            onMouseOver={() => {
-              setCurrenLabel(
-                currentLabel == contents.mainTexts.labels[language].length - 1
-                  ? 1
-                  : currentLabel + 1
-              );
+        <div className="sm:px-12 px-6">
+          <p>{contents.mainTexts.mastheadTexts.hello[language]}</p>
+          <div className="max-w-6xl md:h-64 sm:h-40 h-40">
+            <h1
+              className={`md:text-5xl sm:text-3xl text-2xl`}
+              onMouseOver={() => {
+                setCurrenLabel(
+                  currentLabel == contents.mainTexts.labels[language].length - 1
+                    ? 1
+                    : currentLabel + 1
+                );
+              }}
+            >
+              {contents.mainTexts.name}
+              <br></br>
+              {contents.mainTexts.labels[language][0] +
+                contents.mainTexts.labels[language][currentLabel]}
+            </h1>
+          </div>
+          <Button
+            text={contents.mainTexts.mastheadTexts.cta[language]}
+            action={() => {
+              window.open("mailto:rodrigobrucegalvez@gmail.com");
             }}
-          >
-            {contents.mainTexts.name}
-            <br></br>
-            {contents.mainTexts.labels[language][0] +
-              contents.mainTexts.labels[language][currentLabel]}
-          </h1>
+          />
         </div>
-        <Button
-          text={contents.mainTexts.mastheadTexts.cta[language]}
-          action={() => {
-            window.open("mailto:rodrigobrucegalvez@gmail.com");
-          }}
-        />
       </Section>
 
       <Section centered id={contents.mainTexts.sectionTitles[0].id}>
         <div
-          className="rounded overflow-hidden shadow-xl
-          p-12 sm:max-w-4xl max-w-sm transition duration-200 hover:shadow-lg"
+          className="rounded overflow-hidden shadow-xl px-6 py-4
+          sm:p-12 sm:max-w-4xl max-w-sm transition duration-200 hover:shadow-lg"
         >
           <h2 className="md:text-2xl text-xl">
             {contents.mainTexts.sectionTitles[0][language]}
@@ -201,7 +203,7 @@ const HomePage = () => {
         </div>
       </Section>
 
-      <footer className="mb-4 text-gray-600 text-sm flex justify-center">
+      <footer className="pb-4 text-gray-600 text-sm flex justify-center">
         <p>{contents.mainTexts.footer[language]}</p>
       </footer>
     </div>
