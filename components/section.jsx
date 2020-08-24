@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 
-const Section = ({ children, centered }) => {
+const Section = ({ children, centered, id }) => {
   return (
     <section
       className={`
-        flex lg:p-24 p-12 lg:py-24 md:py-20 sm:py-16 items-center ${
+        flex lg:p-24 md:py-20 sm:py-16 sm:px-12 px-4 items-center ${
           centered ? "justify-center" : ""
         } 
       `}
+      id={id}
     >
       <div className="max-w-6xl">{children}</div>
     </section>
@@ -17,6 +18,7 @@ const Section = ({ children, centered }) => {
 Section.propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.node,
+  id: PropTypes.string,
 };
 
 Section.defaultProps = {
