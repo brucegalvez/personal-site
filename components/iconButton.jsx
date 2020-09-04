@@ -9,7 +9,7 @@ const IconButton = ({ children, href, size }) => {
   });
   return (
     <a href={href} target="_blank">
-      {icon}
+      <div>{icon}</div>
     </a>
   );
 };

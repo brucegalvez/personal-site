@@ -6,7 +6,7 @@ const AppBar = ({ sections, language }) => (
     <nav
       className="
       fixed z-10 h-16 w-full md:flex hidden items-center justify-end
-      bg-gray-600 bg-opacity-75 hover:bg-opacity-100 hover:bg-gray-700 
+      bg-gray-700 bg-opacity-75 hover:bg-opacity-100 hover:bg-gray-800 
       border-0 shadow-xl hover:shadow-md transform duration-200"
     >
       <div className="flex flex-row pr-3 items-center justify-end">
