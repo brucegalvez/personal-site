@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.image {
+  filter: grayscale(50%) contrast(1) brightness(80%);
+  mix-blend-mode: multiply;
+}
+
+@variants hover,focus {
+  .image-hover {
+    filter: none;
+    mix-blend-mode: normal;
+  }
+}

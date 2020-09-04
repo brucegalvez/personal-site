@@ -13,7 +13,7 @@ const AppBar = ({ sections, language }) => (
         <span className="flex-grow"></span>
         {sections.map(({ id, en, es }) => (
           <Link key={id} href="#[id]" as={`/#${id}`}>
-            <a className="mx-4 hover:underline">
+            <a className="mx-4 hover:underline hover:text-pink-500 transform duration-200">
               {language === "en" ? en : es}
             </a>
           </Link>

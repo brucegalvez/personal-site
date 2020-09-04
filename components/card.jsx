@@ -4,12 +4,26 @@ import IconButton from "../components/iconButton";
 const Card = ({ url, imgSrc, title, description, tags }) => (
   <div
     className="max-w-sm ounded overflow-hidden relative
-  shadow-xl transition duration-200 hover:shadow-lg"
+  shadow-xl transition duration-200 hover:shadow-lg "
   >
-    {imgSrc ? <img className="w-full" src={imgSrc} alt={title}></img> : ""}
+    {imgSrc ? (
+      <div className="bg-pink-200">
+        <img
+          className="w-full transform duration-200 image hover:image-hover"
+          // style={{
+          //   filter: `grayscale(70%) contrast(1) brightness(100%)`,
+          //   mixBlendMode: "multiply",
+          // }}
+          src={imgSrc}
+          alt={title}
+        ></img>
+      </div>
+    ) : (
+      ""
+    )}
     <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2">{title}</div>
-      <p className="text-gray-600 text-base">{description}</p>
+      <p className="font-bold text-xl mb-2 text-gray-200">{title}</p>
+      <p className="text-gray-500 text-base">{description}</p>
     </div>
     <div className="h-24"></div>
     <div
@@ -20,8 +34,8 @@ const Card = ({ url, imgSrc, title, description, tags }) => (
         return (
           <span
             key={tag}
-            className="inline-block bg-gray-700 rounded-full px-3 py-1
-          text-xs font-semibold text-gray-900 m-1"
+            className="inline-block bg-gray-500 rounded-full px-3 py-1
+          text-xs font-semibold text-gray-800 m-1"
           >
             {tag}
           </span>
