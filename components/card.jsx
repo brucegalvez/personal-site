@@ -9,11 +9,7 @@ const Card = ({ url, imgSrc, title, description, tags }) => (
     {imgSrc ? (
       <div className="bg-pink-200">
         <img
-          className="w-full transform duration-200 image hover:image-hover"
-          // style={{
-          //   filter: `grayscale(70%) contrast(1) brightness(100%)`,
-          //   mixBlendMode: "multiply",
-          // }}
+          className="w-full transform duration-300 image hover:image-hover"
           src={imgSrc}
           alt={title}
         ></img>
