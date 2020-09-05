@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Language = ({ setLanguage }) => (
   <div
     className="flex flex-col fixed z-20"
@@ -16,4 +18,9 @@ const Language = ({ setLanguage }) => (
     ))}
   </div>
 );
+
+Language.propTypes = {
+  setLanguage: PropTypes.func.isRequired,
+};
+
 export default Language;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Button from "./button";
 import Link from "next/link";
 
@@ -24,5 +25,11 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
     </div>
   </div>
 );
+
+Drawer.proptypes = {
+  isDrawerOpen: PropTypes.bool.isRequired,
+  sections: PropTypes.node.isRequired,
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+};
 
 export default Drawer;

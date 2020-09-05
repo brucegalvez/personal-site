@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Section from "../section";
 import Card from "../card";
 
@@ -25,5 +26,10 @@ const CreativeProjects = ({ language, contents }) => (
     </div>
   </Section>
 );
+
+CreativeProjects.propTypes = {
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+  contents: PropTypes.node.isRequired,
+};
 
 export default CreativeProjects;

@@ -5,17 +5,19 @@ const IconButton = ({ children, href, size }) => {
   const icon = cloneElement(children, {
     className: `
       fill-current text-gray-600 hover:text-pink-500
-      transform duration-400 w-${size}`,
+      transform duration-400 w-12`,
   });
   return (
     <a href={href} target="_blank">
-      <div>{icon}</div>
+      {icon}
     </a>
   );
 };
 
 IconButton.propTypes = {
   children: PropTypes.node.isRequired,
+  href: PropTypes.node.isRequired,
+  size: PropTypes.number.isRequired,
 };
 
 export default IconButton;

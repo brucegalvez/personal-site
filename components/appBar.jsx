@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Button from "./button";
 import Link from "next/link";
 
@@ -24,5 +25,10 @@ const AppBar = ({ sections, language }) => (
     <div className="hidden md:block h-16"></div>
   </>
 );
+
+AppBar.propTypes = {
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+  section: PropTypes.node.isRequired,
+};
 
 export default AppBar;

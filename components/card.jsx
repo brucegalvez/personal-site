@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import LaunchIcon from "../components/icons/launch";
 import IconButton from "../components/iconButton";
 
@@ -45,5 +46,13 @@ const Card = ({ url, imgSrc, title, description, tags }) => (
     </div>
   </div>
 );
+
+Card.propTypes = {
+  url: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tags: PropTypes.array.isRequired,
+};
 
 export default Card;

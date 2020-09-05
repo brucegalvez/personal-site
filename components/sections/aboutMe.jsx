@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Section from "../section";
 
 const AboutMe = ({ language, contents }) => {
@@ -16,6 +17,11 @@ const AboutMe = ({ language, contents }) => {
       </div>
     </Section>
   );
+};
+
+AboutMe.propTypes = {
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+  contents: PropTypes.node.isRequired,
 };
 
 export default AboutMe;

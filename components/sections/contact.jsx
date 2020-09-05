@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Section from "../section";
 import IconButton from "../iconButton";
 import TwitterIcon from "../icons/twitter";
@@ -26,5 +27,10 @@ const Contact = ({ language, contents }) => (
     </div>
   </Section>
 );
+
+Contact.propTypes = {
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+  contents: PropTypes.node.isRequired,
+};
 
 export default Contact;

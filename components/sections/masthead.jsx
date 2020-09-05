@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "../button";
 import Section from "../section";
 
@@ -48,6 +49,11 @@ const Masthead = ({ language, contents }) => {
       </div>
     </Section>
   );
+};
+
+Masthead.propTypes = {
+  language: PropTypes.oneOf(["es", "en"]).isRequired,
+  contents: PropTypes.node.isRequired,
 };
 
 export default Masthead;

@@ -1,6 +1,7 @@
 import Head from "next/head";
+import PropTypes from "prop-types";
 
-export default ({ siteTitle }) => (
+const Header = ({ siteTitle }) => (
   <Head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,3 +9,9 @@ export default ({ siteTitle }) => (
     <title>{siteTitle}</title>
   </Head>
 );
+
+Header.proptypes = {
+  siteTitle: PropTypes.string.isRequired,
+};
+
+export default Header;
