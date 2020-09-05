@@ -41,13 +41,14 @@ export default {
   mucho aprender de temas relacionados a ciencias y tecnologías, tengo
   experiencia en Project Management, Metodologías Ágiles,
   Investigación, Marketing y Branding.`,
-    en: `I studied Communications at the University of Lima, but during 
-  my career, I enrolled in courses from different faculties and I was able 
-  to learn a little about different fields. In 2015 I took an OOP course in 
-  Java, where I learned to program and gained the confidence to continue 
-  learning web development in a self-taught way. I love learning about 
-  topics related to science and technology, I have experience in Project 
-  Management, Agile Methodologies, Research, Marketing, and Branding.`,
+    en: `I majored in Communications at the University of Lima, but I 
+    enrolled in courses from different faculties during my career and 
+    was able to learn a little from different fields. In 2015 I took 
+    an Object-Oriented Programming course in Java, where I learned to 
+    code and gained the confidence to keep learning web development in 
+    a self-taught way. I love learning about science and technology. I 
+    also have experience in Project Management, Agile Methodologies, 
+    Research, Marketing, and Branding.`,
   },
   mastheadTexts: {
     hello: { es: "Hola, me llamo", en: "Hi, my name is" },
