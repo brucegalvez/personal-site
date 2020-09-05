@@ -1,17 +1,11 @@
-import { cloneElement } from "react";
 import PropTypes from "prop-types";
 
-const IconButton = ({ children, href, size }) => {
-  const icon = cloneElement(children, {
-    className: `
-      fill-current text-gray-600 hover:text-pink-500
-      transform duration-400 w-${size}`,
-  });
+const IconButton = ({ children, href }) => {
   return (
     <a href={href} target="_blank">
       <div
-        className={`fill-current transform duration-200 
-        text-gray-600 hover:text-pink-500 w-${size}`}
+        className="fill-current transform duration-200 
+        text-gray-600 hover:text-pink-500 w-12"
       >
         {children}
       </div>
@@ -22,7 +16,6 @@ const IconButton = ({ children, href, size }) => {
 IconButton.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.node.isRequired,
-  size: PropTypes.number.isRequired,
 };
 
 export default IconButton;

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import LaunchIcon from "../components/icons/launch";
-import IconButton from "../components/iconButton";
 
 const Card = ({ url, imgSrc, title, description, tags }) => (
   <div
@@ -40,9 +39,14 @@ const Card = ({ url, imgSrc, title, description, tags }) => (
       })}
     </div>
     <div className="absolute" style={{ right: "1.5rem", bottom: "1.5rem" }}>
-      <IconButton href={url} size="4">
-        <LaunchIcon />
-      </IconButton>
+      <a href={url}>
+        <div
+          className="fill-current transform duration-200 
+        text-gray-600 hover:text-pink-500 w-4"
+        >
+          <LaunchIcon />
+        </div>
+      </a>
     </div>
   </div>
 );
