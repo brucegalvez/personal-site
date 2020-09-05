@@ -9,7 +9,12 @@ const IconButton = ({ children, href, size }) => {
   });
   return (
     <a href={href} target="_blank">
-      {icon}
+      <div
+        className={`fill-current transform duration-200 
+        text-gray-600 hover:text-pink-500 w-${size}`}
+      >
+        {children}
+      </div>
     </a>
   );
 };
