@@ -19,10 +19,14 @@ const Contact = ({ language, contents }) => (
         <LinkedinIcon />
       </IconButton>
       <IconButton href={"https://github.com/brucegalvez/"} size="12">
-        <GithubIcon />
+        <div>
+          <GithubIcon />
+        </div>
       </IconButton>
       <IconButton href={"https://www.behance.net/brucegalvez"} size="12">
-        <BehanceIcon />
+        <div>
+          <BehanceIcon />
+        </div>
       </IconButton>
     </div>
   </Section>

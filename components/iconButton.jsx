@@ -2,11 +2,10 @@ import { cloneElement } from "react";
 import PropTypes from "prop-types";
 
 const IconButton = ({ children, href, size }) => {
-  const sizeClass = `w-${size}`;
   const icon = cloneElement(children, {
     className: `
       fill-current text-gray-600 hover:text-pink-500
-      transform duration-400 ${sizeClass}`,
+      transform duration-400 w-${size}`,
   });
   return (
     <a href={href} target="_blank">
