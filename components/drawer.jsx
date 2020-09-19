@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "./Button";
+import Button from "./button";
 import Link from "next/link";
 
 const Drawer = ({ isDrawerOpen, sections, language, scrollToSection }) => (

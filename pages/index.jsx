@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import Header from "../components/Header";
-import AppBar from "../components/AppBar";
-import Drawer from "../components/Drawer";
-import LangButtons from "../components/LangButtons";
+import Header from "../components/header";
+import AppBar from "../components/appBar";
+import Drawer from "../components/drawer";
+import LangButtons from "../components/langButtons";
 import HamburguerIcon from "../components/icons/hamburguer";
-import MastHead from "../components/sections/Masthead";
-import AboutMe from "../components/sections/AboutMe";
-import SoftwareProjects from "../components/sections/SoftwareProjects";
-import CreativeProjects from "../components/sections/CreativeProjects";
-import Contact from "../components/sections/Contact";
-import Footer from "../components/Footer";
+import MastHead from "../components/sections/masthead";
+import AboutMe from "../components/sections/aboutMe";
+import SoftwareProjects from "../components/sections/softwareProjects";
+import CreativeProjects from "../components/sections/creativeProjects";
+import Contact from "../components/sections/contact";
+import Footer from "../components/footer";
 import contents from "../contents";
 
 const HomePage = () => {

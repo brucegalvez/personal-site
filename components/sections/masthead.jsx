@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import Button from "../Button";
-import Section from "../Section";
+import Button from "../button";
+import Section from "../section";
 
 const Masthead = ({ language, contents }) => {
   const [currentLabel, setCurrenLabel] = useState(1);
