@@ -30,7 +30,7 @@ const AppBar = ({ sections, language, scrollToSection }) => (
 
 AppBar.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  section: PropTypes.node.isRequired,
+  sections: PropTypes.array.isRequired,
   scrollToSection: PropTypes.func.isRequired,
 };
 

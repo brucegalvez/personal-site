@@ -21,7 +21,7 @@ const AboutMe = ({ language, contents }) => {
 
 AboutMe.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.node.isRequired,
+  contents: PropTypes.object.isRequired,
 };
 
 export default AboutMe;

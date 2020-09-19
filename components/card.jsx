@@ -53,7 +53,7 @@ const Card = ({ url, imgSrc, title, description, tags }) => (
 
 Card.propTypes = {
   url: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,

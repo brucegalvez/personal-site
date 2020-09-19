@@ -27,7 +27,7 @@ const SoftwareProjects = ({ language, contents }) => (
 
 SoftwareProjects.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.node.isRequired,
+  contents: PropTypes.object.isRequired,
 };
 
 export default SoftwareProjects;

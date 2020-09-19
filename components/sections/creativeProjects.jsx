@@ -29,7 +29,7 @@ const CreativeProjects = ({ language, contents }) => (
 
 CreativeProjects.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.node.isRequired,
+  contents: PropTypes.object.isRequired,
 };
 
 export default CreativeProjects;

@@ -53,7 +53,7 @@ const Masthead = ({ language, contents }) => {
 
 Masthead.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.node.isRequired,
+  contents: PropTypes.object.isRequired,
 };
 
 export default Masthead;
