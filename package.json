@@ -1,5 +1,5 @@
 {
-  "name": "brucegalvez.com",
+  "name": "brucegalvez.com-v2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brucegalvez/brucegalvez.com.git"
+    "url": "git+https://github.com/brucegalvez/brucegalvez.com-v2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brucegalvez/brucegalvez.com/issues"
+    "url": "https://github.com/brucegalvez/brucegalvez.com-v2/issues"
   },
-  "homepage": "https://github.com/brucegalvez/brucegalvez.com#readme",
+  "homepage": "https://github.com/brucegalvez/brucegalvez.com-v2#readme",
   "dependencies": {
     "next": "^9.5.2",
     "react": "^16.13.1",
