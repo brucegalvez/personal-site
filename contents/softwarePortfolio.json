@@ -1,7 +1,7 @@
 [
   {
     "title": "Product Data Scraper",
-    "url": "https://github.com/brucegalvez/product-data-scraper",
+    "url": "https://github.com/brucegalvez/scraper-skincare-products",
     "description": {
       "en": "A simple scraper that does a Google Search and gets product data from the first page in the results.",
       "es": "Un simple scraper que realiza una búsqueda en Google Search y extrae la data de la primera página en los resultados."
@@ -27,12 +27,12 @@
     "tags": ["JS", "HTML", "SCSS"]
   },
   {
-    "title": "Personal Website",
-    "url": "https://github.com/brucegalvez/brucegalvez.com-v2",
+    "title": "Chat Client",
+    "url": "https://github.com/brucegalvez/chat-client",
     "description": {
-      "en": "This website :D The second version of my personal website, a single page application.",
-      "es": "Esta website :D La segunda versión de mi website personal, una aplicación de una sola página."
+      "en": "A chat client similar to Facebook Messenger, that presents conversations and sends messages to the server.",
+      "es": "Un cliente de chat similar a Facebook Messenger, que presenta conversaciones y envía mensajes al servidor."
     },
-    "tags": ["React", "Next.js", "Tailwind"]
+    "tags": ["React", "Styled-Components"]
   }
 ]
