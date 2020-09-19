@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
-import Button from "./button";
-import Link from "next/link";
+import Button from "./Button";
 
-const AppBar = ({ sections, language }) => (
+const AppBar = ({ sections, language, scrollToSection }) => (
   <>
     <nav
       className="
@@ -13,11 +12,14 @@ const AppBar = ({ sections, language }) => (
       <div className="flex flex-row pr-3 items-center justify-end">
         <span className="flex-grow"></span>
         {sections.map(({ id, en, es }) => (
-          <Link key={id} href="#[id]" as={`/#${id}`}>
-            <a className="mx-4 hover:underline hover:text-pink-500 transform duration-200">
-              {language === "en" ? en : es}
-            </a>
-          </Link>
+          <a
+            key={id}
+            onClick={() => scrollToSection(`#${id}`)}
+            className="mx-4 cursor-pointer hover:underline
+            hover:text-pink-500 transform duration-200"
+          >
+            {language === "en" ? en : es}
+          </a>
         ))}
         <Button text={"Resume"} action={() => window.open("cv.pdf")} />
       </div>
@@ -29,6 +31,7 @@ const AppBar = ({ sections, language }) => (
 AppBar.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
   section: PropTypes.node.isRequired,
+  scrollToSection: PropTypes.func.isRequired,
 };
 
 export default AppBar;
