@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Section from "../section";
-import Card from "../card";
+import Section from "../Section";
+import Card from "../Card";
 
 const CreativeProjects = ({ language, contents }) => (
   <Section centered id={contents.mainTexts.sectionTitles[2].id}>

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import LaunchIcon from "../components/icons/launch";
+import LaunchIcon from "./icons/launch";
 
 const Card = ({ url, imgSrc, title, description, tags }) => (
   <div
