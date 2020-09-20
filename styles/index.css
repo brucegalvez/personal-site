@@ -7,7 +7,31 @@
   mix-blend-mode: multiply;
 }
 
-@variants hover,focus {
+.cls-1 {
+  fill: none;
+  stroke: #231f20;
+  stroke-miterlimit: 10;
+  stroke-width: 0.25px;
+}
+
+.cls-2 {
+  fill: #fff;
+}
+
+.cls-3 {
+  fill: #ea64a5;
+}
+
+.cls-4 {
+  fill: #e864a5;
+}
+
+.cls-5 {
+  fill: #2d3748;
+}
+
+@variants hover,
+focus {
   .image-hover {
     filter: none;
     mix-blend-mode: normal;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "./button";
+import TextButton from "./textButton";
 
 const AppBar = ({ sections, language, scrollToSection }) => (
   <>
@@ -21,7 +21,7 @@ const AppBar = ({ sections, language, scrollToSection }) => (
             {language === "en" ? en : es}
           </a>
         ))}
-        <Button text={"Resume"} action={() => window.open("cv.pdf")} />
+        <TextButton text={"Resume"} action={() => window.open("cv.pdf")} />
       </div>
     </nav>
     <div className="hidden md:block h-16"></div>

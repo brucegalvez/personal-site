@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "./button";
+import TextButton from "./textButton";
 import Link from "next/link";
 
 const Drawer = ({ isDrawerOpen, sections, language, scrollToSection }) => (
@@ -21,7 +21,7 @@ const Drawer = ({ isDrawerOpen, sections, language, scrollToSection }) => (
           {language === "en" ? en : es}
         </a>
       ))}
-      <Button text={"Resume"} action={() => window.open("cv.pdf")} />
+      <TextButton text={"Resume"} action={() => window.open("cv.pdf")} />
     </div>
   </div>
 );

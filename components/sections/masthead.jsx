@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import Button from "../button";
+import TextButton from "../textButton";
 import Section from "../section";
 
 const Masthead = ({ language, contents }) => {
@@ -40,7 +40,7 @@ const Masthead = ({ language, contents }) => {
             </h1>
           </div>
         </div>
-        <Button
+        <TextButton
           text={contents.mainTexts.mastheadTexts.cta[language]}
           action={() => {
             window.open("mailto:rodrigobrucegalvez@gmail.com");
