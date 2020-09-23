@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .image {
   filter: grayscale(50%) contrast(1) brightness(80%);
   mix-blend-mode: multiply;
