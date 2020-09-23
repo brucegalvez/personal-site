@@ -20,13 +20,14 @@
   },
   "homepage": "https://github.com/brucegalvez/brucegalvez.com-v2#readme",
   "dependencies": {
-    "next": "^9.5.2",
+    "@tailwindui/react": "^0.1.1",
+    "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.6.2"
+    "tailwindcss": "^1.8.10"
   }
 }

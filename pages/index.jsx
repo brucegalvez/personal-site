@@ -28,12 +28,6 @@ const HomePage = () => {
     };
   };
 
-  const scrollToSection = (selector) => {
-    document.querySelector(selector).scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
@@ -52,15 +46,10 @@ const HomePage = () => {
   return (
     <div className="bg-gray-800 font-mono text-gray-200">
       <Header siteTitle={contents.mainTexts.siteTitle[language]} />
-      <AppBar
-        sections={contents.mainTexts.sectionTitles}
-        language={language}
-        scrollToSection={scrollToSection}
-      />
+      <AppBar sections={contents.mainTexts.sectionTitles} language={language} />
       <Drawer
         isDrawerOpen={isDrawerOpen}
         sections={contents.mainTexts.sectionTitles}
-        scrollToSection={scrollToSection}
         language={language}
       />
       <HamburguerIcon

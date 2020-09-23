@@ -1,20 +1,25 @@
+import { Transition } from "@tailwindui/react";
 import PropTypes from "prop-types";
 import TextButton from "./textButton";
-import Link from "next/link";
 
-const Drawer = ({ isDrawerOpen, sections, language, scrollToSection }) => (
-  <div
-    className="flex fixed items-center justify-center z-10 transform
-        h-screen p-2 w-48 transition duration-200 bg-gray-700
-        shadow-xl hover:shadow-md
-      "
-    style={isDrawerOpen ? { right: 0 } : { right: "-48rem" }}
+const Drawer = ({ isDrawerOpen, sections, language }) => (
+  <Transition
+    show={isDrawerOpen}
+    className="flex fixed items-center justify-center z-10
+    h-screen p-2 w-48 bg-gray-700 shadow-xl hover:shadow-md right-0
+  "
+    enter="transform transition ease-in-out duration-500 sm:duration-700"
+    enterFrom="translate-x-full"
+    enterTo="translate-x-0"
+    leave="transform transition ease-in-out duration-500 sm:duration-700"
+    leaveFrom="translate-x-0"
+    leaveTo="translate-x-full"
   >
     <div className={`flex items-center flex-col`}>
       {sections.map(({ id, en, es }) => (
         <a
           key={id}
-          onClick={() => scrollToSection(`#${id}`)}
+          href={`#${id}`}
           className="text-center my-8 cursor-pointer no-underline
                   transform duration-200 hover:underline hover:text-pink-500"
         >
@@ -23,14 +28,13 @@ const Drawer = ({ isDrawerOpen, sections, language, scrollToSection }) => (
       ))}
       <TextButton text={"Resume"} action={() => window.open("cv.pdf")} />
     </div>
-  </div>
+  </Transition>
 );
 
 Drawer.proptypes = {
   isDrawerOpen: PropTypes.bool.isRequired,
   sections: PropTypes.node.isRequired,
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  scrollToSection: PropTypes.func.isRequired,
 };
 
 export default Drawer;

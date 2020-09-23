@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import TextButton from "./textButton";
 
-const AppBar = ({ sections, language, scrollToSection }) => (
+const AppBar = ({ sections, language }) => (
   <>
     <nav
       className="
@@ -14,7 +14,7 @@ const AppBar = ({ sections, language, scrollToSection }) => (
         {sections.map(({ id, en, es }) => (
           <a
             key={id}
-            onClick={() => scrollToSection(`#${id}`)}
+            href={`#${id}`}
             className="mx-4 cursor-pointer hover:underline
             hover:text-pink-500 transform duration-200"
           >
@@ -31,7 +31,6 @@ const AppBar = ({ sections, language, scrollToSection }) => (
 AppBar.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
   sections: PropTypes.array.isRequired,
-  scrollToSection: PropTypes.func.isRequired,
 };
 
 export default AppBar;
