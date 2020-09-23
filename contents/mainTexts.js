@@ -33,22 +33,22 @@ export default {
     ],
   },
   aboutMe: {
-    es: `Estudié Comunicaciones en la Universidad de Lima, pero durante mi 
+    es: `Me gradué como comunicador, pero durante mi 
   carrera me matriculé en cursos de distintas facultades y pude
-  aprender un poco de distintos campos. En el 2015 llevé un curso de
-  OOP en Java, donde aprendí a programar y adquirí confianza para
-  continuar aprendiendo web development de forma autodidacta. Me gusta
-  mucho aprender de temas relacionados a ciencias y tecnologías, tengo
-  experiencia en Project Management, Metodologías Ágiles,
-  Investigación, Marketing y Branding.`,
-    en: `I majored in Communications at the University of Lima, but I 
-    enrolled in courses from different faculties during my career and 
-    was able to learn a little from different fields. In 2015 I took 
-    an Object-Oriented Programming course in Java, where I learned to 
-    code and gained the confidence to keep learning web development in 
-    a self-taught way. I love learning about science and technology. I 
-    also have experience in Project Management, Agile Methodologies, 
-    Research, Marketing, and Branding.`,
+  aprender un poco de distintos campos. Uno de ellos fue un curso de
+  Programación Orientada a Objetos en Java, en el cual aprendí a programar
+  y adquirí confianza para continuar aprendiendo desarrollo web de
+  forma autodidacta. Tengo experiencia en Project Management, Metodologías
+  Ágiles, Investigación, Marketing y Branding, pero lo que realmente me
+  apasiona es aprender de temas relacionados a ciencia y tecnología.`,
+    en: `I majored in Communication Sciences, but I was able to
+    assist to classes from different faculties and learn a little bit 
+    from different fields. One of these classes was 
+    an Object-Oriented Programming in Java, in which I learned to 
+    code and gained the confidence to learn web development on my own.
+    I have experience in Project Management, Agile Methodologies,
+    Research, Marketing, and Branding, but what I'm really passionate 
+    about is learning about science and technology.`,
   },
   mastheadTexts: {
     hello: { es: "Hola, me llamo", en: "Hi, my name is" },
