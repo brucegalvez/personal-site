@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
 import Header from "../components/header";
 import AppBar from "../components/appBar";
 import Drawer from "../components/drawer";
@@ -15,33 +16,11 @@ import contents from "../contents";
 const HomePage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [language, setLanguage] = useState("en");
-  const [dimensions, setDimensions] = useState({ height: 0, width: 0 });
-
-  const debounce = (fn, ms) => {
-    let timer;
-    return (_) => {
-      clearTimeout(timer);
-      timer = setTimeout((_) => {
-        timer = null;
-        fn.apply(this, arguments);
-      }, ms);
-    };
-  };
+  const { width } = useWindowSize(true);
 
   useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }, 100);
-
-    if (dimensions.width > 768) setIsDrawerOpen(false);
-    window.addEventListener("resize", debouncedHandleResize);
-    return (_) => {
-      window.removeEventListener("resize", debouncedHandleResize);
-    };
-  });
+    if (width > 768) setIsDrawerOpen(false);
+  }, [width]);
 
   return (
     <div className="bg-gray-800 font-mono text-gray-200">
