@@ -1,9 +1,15 @@
 {
   "env": {
     "es2021": true,
-    "node": true
+    "node": true,
+    "browser": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier/react",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,9 +19,10 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
-  },
-  "globals": {
-    "React": "writable"
+    "react/react-in-jsx-scope": "off",
+    "object-curly-newline": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/state-in-constructor": "off",
+    "linebreak-style": "off"
   }
 }
