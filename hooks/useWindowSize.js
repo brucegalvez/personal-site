@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
 function getWindowSize() {
+  if (!process.browser) {
+    return {};
+  }
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
