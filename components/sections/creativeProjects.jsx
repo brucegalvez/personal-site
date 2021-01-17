@@ -9,7 +9,7 @@ const CreativeProjects = ({ language, contents }) => (
     </h2>
     <div
       className="
-        grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1"
+        grid gap-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1"
     >
       {contents.creativePortfolio.map(
         ({ url, imgSrc, title, description, tags }) => (
@@ -29,7 +29,7 @@ const CreativeProjects = ({ language, contents }) => (
 
 CreativeProjects.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.object.isRequired,
+  contents: PropTypes.shape().isRequired,
 };
 
 export default CreativeProjects;
