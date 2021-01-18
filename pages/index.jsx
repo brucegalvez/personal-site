@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import useWindowSize from "../hooks/useWindowSize";
 import Header from "../components/header";
 import AppBar from "../components/appBar";
@@ -13,7 +14,36 @@ import Contact from "../components/sections/contact";
 import Footer from "../components/footer";
 import contents from "../contents";
 
-const HomePage = () => {
+export async function getStaticProps() {
+  try {
+    const { data } = await axios.post(
+      "https://api.github.com/graphql",
+      {
+        query: `{ user (login: "brucegalvez") {
+        repositories (first: 20, privacy: PUBLIC, isFork: false) {
+          nodes {
+            id
+            name
+            description
+            url
+            languages (first:3) {
+              nodes {
+                name
+        } } } } } }
+      `,
+      },
+      { headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` } }
+    );
+    return {
+      props: { repositories: data.data.user.repositories },
+    };
+  } catch (error) {
+    console.log(error);
+  }
+  return { props: { repositories: [] } };
+}
+
+const HomePage = (repositories) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [language, setLanguage] = useState("en");
   const { width } = useWindowSize(true);
@@ -21,6 +51,10 @@ const HomePage = () => {
   useEffect(() => {
     if (width > 768) setIsDrawerOpen(false);
   }, [width]);
+
+  // useEffect(() => {
+  // console.log(repositories.repositories.nodes); // Github data
+  // }, []);
 
   return (
     <div className="bg-gray-800 font-mono text-gray-200">
@@ -40,7 +74,11 @@ const HomePage = () => {
       <LangButtons setLanguage={setLanguage} />
       <MastHead language={language} contents={contents} />
       <AboutMe language={language} contents={contents} />
-      <SoftwareProjects language={language} contents={contents} />
+      <SoftwareProjects
+        language={language}
+        contents={contents}
+        repositories={repositories.repositories.nodes}
+      />
       <CreativeProjects language={language} contents={contents} />
       <Contact language={language} contents={contents} />
       <Footer footerText={contents.mainTexts.footer[language]} />

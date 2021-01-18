@@ -45,7 +45,7 @@ const Card = ({ url, imgSrc, title, description, tags }) => {
         className="text-sm flex flex-row items-center w-9/12 mr-4 flex-wrap absolute"
         style={{ left: "1.5rem", bottom: "1.5rem" }}
       >
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <span
             key={tag}
             className="inline-block bg-gray-500 rounded-full px-3 py-1 text-xs font-semibold text-gray-800 m-1"
