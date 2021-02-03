@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import TextButton from "../textButton";
-import Section from "../section";
+import TextButton from "../presentational/textButton";
+import Section from "../presentational/section";
 
 const Masthead = ({ language, contents }) => {
   const [currentLabel, setCurrenLabel] = useState(1);
@@ -12,10 +12,11 @@ const Masthead = ({ language, contents }) => {
       <div className="sm:px-12 px-6">
         <p>{contents.mainTexts.mastheadTexts.hello[language]}</p>
         <div className="max-w-6xl md:h-64 sm:h-40 h-40">
-          <div className={`md:text-5xl sm:text-3xl text-2xl`}>
+          <div className="md:text-5xl sm:text-3xl text-2xl">
             <h1>{contents.mainTexts.name}</h1>
             <h1
               className="transform duration-200 text-white hover:text-gray-800"
+              onFocus={() => null}
               onMouseOver={
                 isAble
                   ? () => {
@@ -23,7 +24,7 @@ const Masthead = ({ language, contents }) => {
                       setTimeout(
                         () =>
                           setCurrenLabel(
-                            currentLabel ==
+                            currentLabel ===
                               contents.mainTexts.labels[language].length - 1
                               ? 1
                               : currentLabel + 1
@@ -53,7 +54,7 @@ const Masthead = ({ language, contents }) => {
 
 Masthead.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.object.isRequired,
+  contents: PropTypes.shape().isRequired,
 };
 
 export default Masthead;

@@ -1,6 +1,6 @@
 import { Transition } from "@tailwindui/react";
 import PropTypes from "prop-types";
-import TextButton from "./textButton";
+import TextButton from "../presentational/textButton";
 
 const Drawer = ({ isDrawerOpen, sections, language }) => (
   <Transition
@@ -15,7 +15,7 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
     leaveFrom="translate-x-0"
     leaveTo="translate-x-full"
   >
-    <div className={`flex items-center flex-col`}>
+    <div className="flex items-center flex-col">
       {sections.map(({ id, en, es }) => (
         <a
           key={id}
@@ -26,12 +26,12 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
           {language === "en" ? en : es}
         </a>
       ))}
-      <TextButton text={"Resume"} action={() => window.open("cv.pdf")} />
+      <TextButton text="Resume" action={() => window.open("cv.pdf")} />
     </div>
   </Transition>
 );
 
-Drawer.proptypes = {
+Drawer.propTypes = {
   isDrawerOpen: PropTypes.bool.isRequired,
   sections: PropTypes.node.isRequired,
   language: PropTypes.oneOf(["es", "en"]).isRequired,

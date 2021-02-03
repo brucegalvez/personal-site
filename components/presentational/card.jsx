@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import LaunchIcon from "./icons/launch";
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import LaunchIcon from "../icons/launch";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const Card = ({ url, imgSrc, title, description, tags }) => {
   const [showingCard, setShowingCard] = useState();

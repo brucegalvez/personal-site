@@ -1,46 +1,22 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import getDataFromGithub from "../utils/getDataFromGithub";
 import useWindowSize from "../hooks/useWindowSize";
 import Header from "../components/header";
-import AppBar from "../components/appBar";
-import Drawer from "../components/drawer";
-import LangButtons from "../components/langButtons";
+import AppBar from "../components/containers/appBar";
+import Drawer from "../components/containers/drawer";
+import LangButtons from "../components/presentational/langButtons";
 import HamburguerIcon from "../components/icons/hamburguer";
-import MastHead from "../components/sections/masthead";
-import AboutMe from "../components/sections/aboutMe";
-import SoftwareProjects from "../components/sections/softwareProjects";
-import CreativeProjects from "../components/sections/creativeProjects";
-import Contact from "../components/sections/contact";
+import MastHead from "../components/containers/masthead";
+import AboutMe from "../components/containers/aboutMe";
+import SoftwareProjects from "../components/containers/softwareProjects";
+import CreativeProjects from "../components/containers/creativeProjects";
+import Contact from "../components/containers/contact";
 import Footer from "../components/footer";
 import contents from "../contents";
 
 export async function getStaticProps() {
-  try {
-    const { data } = await axios.post(
-      "https://api.github.com/graphql",
-      {
-        query: `{ user (login: "brucegalvez") {
-        repositories (first: 20, privacy: PUBLIC, isFork: false) {
-          nodes {
-            id
-            name
-            description
-            url
-            languages (first:3) {
-              nodes {
-                name
-        } } } } } }
-      `,
-      },
-      { headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` } }
-    );
-    return {
-      props: { repositories: data.data.user.repositories },
-    };
-  } catch (error) {
-    console.log(error);
-  }
-  return { props: { repositories: [] } };
+  const repositories = await getDataFromGithub();
+  return { props: { repositories } };
 }
 
 const HomePage = (repositories) => {
@@ -53,7 +29,7 @@ const HomePage = (repositories) => {
   }, [width]);
 
   // useEffect(() => {
-  // console.log(repositories.repositories.nodes); // Github data
+  //   console.log("??", repositories.repositories.nodes); // Github data
   // }, []);
 
   return (

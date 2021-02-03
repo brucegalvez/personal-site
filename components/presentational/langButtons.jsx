@@ -7,6 +7,7 @@ const LangButtons = ({ setLanguage }) => (
   >
     {["es", "en"].map((option) => (
       <button
+        type="button"
         className="rounded-full text-xs uppercase 
         text-pink-500 border-pink-500 border-2
         hover:bg-pink-500 hover:text-gray-900 transform duration-200

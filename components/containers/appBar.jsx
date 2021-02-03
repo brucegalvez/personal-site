@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import TextButton from "./textButton";
+import TextButton from "../presentational/textButton";
 
 const AppBar = ({ sections, language }) => (
   <>
@@ -10,7 +10,7 @@ const AppBar = ({ sections, language }) => (
       border-0 shadow-xl hover:shadow-md transform duration-200"
     >
       <div className="flex flex-row pr-3 items-center justify-end">
-        <span className="flex-grow"></span>
+        <span className="flex-grow" />
         {sections.map(({ id, en, es }) => (
           <a
             key={id}
@@ -21,16 +21,16 @@ const AppBar = ({ sections, language }) => (
             {language === "en" ? en : es}
           </a>
         ))}
-        <TextButton text={"Resume"} action={() => window.open("cv.pdf")} />
+        <TextButton text="Resume" action={() => window.open("cv.pdf")} />
       </div>
     </nav>
-    <div className="hidden md:block h-16"></div>
+    <div className="hidden md:block h-16" />
   </>
 );
 
 AppBar.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  sections: PropTypes.array.isRequired,
+  sections: PropTypes.arrayOf(PropTypes.func).isRequired,
 };
 
 export default AppBar;

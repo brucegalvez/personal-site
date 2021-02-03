@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import Section from "../section";
-import Card from "../card";
+import Section from "../presentational/section";
+import Card from "../presentational/card";
 
 const SoftwareProjects = ({ language, contents, repositories }) => (
   <Section centered id={contents.mainTexts.sectionTitles[1].id}>
@@ -9,7 +9,7 @@ const SoftwareProjects = ({ language, contents, repositories }) => (
     </h2>
     <div className="grid gap-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1">
       {repositories
-        .filter(({ id }) =>
+        ?.filter(({ id }) =>
           [
             "MDEwOlJlcG9zaXRvcnkyNDU1MjI5MDM=",
             "MDEwOlJlcG9zaXRvcnkyNDc4NDQ5Njc=",

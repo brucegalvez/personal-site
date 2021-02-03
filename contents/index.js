@@ -1,6 +1,6 @@
-import softwarePortfolio from "../contents/softwarePortfolio.json";
-import creativePortfolio from "../contents/creativePortfolio.json";
-import mainTexts from "../contents/mainTexts";
+import softwarePortfolio from "./softwarePortfolio.json";
+import creativePortfolio from "./creativePortfolio.json";
+import mainTexts from "./mainTexts";
 
 export default {
   softwarePortfolio,

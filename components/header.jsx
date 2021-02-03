@@ -10,7 +10,7 @@ const Header = ({ siteTitle }) => (
   </Head>
 );
 
-Header.proptypes = {
+Header.propTypes = {
   siteTitle: PropTypes.string.isRequired,
 };
 
