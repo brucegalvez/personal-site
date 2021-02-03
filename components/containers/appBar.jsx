@@ -30,7 +30,7 @@ const AppBar = ({ sections, language }) => (
 
 AppBar.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  sections: PropTypes.arrayOf(PropTypes.func).isRequired,
+  sections: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default AppBar;

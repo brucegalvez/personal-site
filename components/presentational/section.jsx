@@ -16,12 +16,13 @@ const Section = ({ children, centered, id }) => (
 Section.propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.node,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 Section.defaultProps = {
   centered: false,
   children: null,
+  id: null,
 };
 
 export default Section;

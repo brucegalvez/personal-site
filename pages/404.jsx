@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Illustration404 from '../assets/illustration404';
-import TextButton from '../components/textButton';
+import Link from "next/link";
+import Illustration404 from "../assets/illustration404";
+import TextButton from "../components/presentational/textButton";
 
 const Custom404 = () => (
   <div

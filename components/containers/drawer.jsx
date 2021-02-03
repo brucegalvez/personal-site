@@ -33,7 +33,7 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
 
 Drawer.propTypes = {
   isDrawerOpen: PropTypes.bool.isRequired,
-  sections: PropTypes.node.isRequired,
+  sections: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   language: PropTypes.oneOf(["es", "en"]).isRequired,
 };
 
