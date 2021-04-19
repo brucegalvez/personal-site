@@ -12,16 +12,16 @@ const Contact = ({ language, contents }) => (
       {contents.mainTexts.sectionTitles[3][language]}
     </h2>
     <div className="grid gap-4 grid-cols-4">
-      <IconButton href={"https://twitter.com/brucegalvez"} size="12">
+      <IconButton href="https://twitter.com/brucegalvez" size="12">
         <TwitterIcon />
       </IconButton>
-      <IconButton href={"https://www.linkedin.com/in/brucegalvez/"} size="12">
+      <IconButton href="https://www.linkedin.com/in/brucegalvez/" size="12">
         <LinkedinIcon />
       </IconButton>
-      <IconButton href={"https://github.com/brucegalvez/"} size="12">
+      <IconButton href="https://github.com/brucegalvez/" size="12">
         <GithubIcon />
       </IconButton>
-      <IconButton href={"https://www.behance.net/brucegalvez"} size="12">
+      <IconButton href="https://www.behance.net/brucegalvez" size="12">
         <BehanceIcon />
       </IconButton>
     </div>
@@ -30,7 +30,7 @@ const Contact = ({ language, contents }) => (
 
 Contact.propTypes = {
   language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.object.isRequired,
+  contents: PropTypes.shape().isRequired,
 };
 
 export default Contact;

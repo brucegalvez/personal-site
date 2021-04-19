@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import LaunchIcon from "../icons/launch";
+import { ExternalLink, Eye } from "react-feather";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
-const Card = ({ url, imgSrc, title, description, tags }) => {
+const Card = ({ url, imgSrc, title, description, tags, stats }) => {
   const [showingCard, setShowingCard] = useState();
   const cardRef = useRef();
 
@@ -24,7 +24,7 @@ const Card = ({ url, imgSrc, title, description, tags }) => {
   return (
     <div
       ref={cardRef}
-      className={`max-w-sm ounded overflow-hidden relative shadow-xl transition duration-200 hover:shadow-lg
+      className={`max-w-sm rounded max-h-full overflow-hidden relative shadow-xl transition duration-200 hover:shadow-lg
       ${showingCard ? "opacity-100" : "opacity-0"}`}
     >
       {imgSrc && (
@@ -36,30 +36,43 @@ const Card = ({ url, imgSrc, title, description, tags }) => {
           />
         </div>
       )}
-      <div className="px-6 py-4">
-        <p className="font-bold text-xl mb-2 text-gray-200">{title}</p>
-        <p className="text-gray-500 text-base">{description}</p>
-      </div>
-      <div className="h-24" />
-      <div
-        className="text-sm flex flex-row items-center w-9/12 mr-4 flex-wrap absolute"
-        style={{ left: "1.5rem", bottom: "1.5rem" }}
-      >
-        {tags?.map((tag) => (
-          <span
-            key={tag}
-            className="inline-block bg-gray-500 rounded-full px-3 py-1 text-xs font-semibold text-gray-800 m-1"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div className="absolute" style={{ right: "1.5rem", bottom: "1.5rem" }}>
-        <a href={url}>
-          <div className="fill-current transform duration-200 text-gray-600 hover:text-pink-500 w-4">
-            <LaunchIcon />
-          </div>
-        </a>
+      <div className="px-6 py-4 grid" style={{ height: "100% auto" }}>
+        <span className="flex items-center justify-between mb-2">
+          <p className="font-bold text-xl text-gray-200">{title}</p>
+        </span>
+        {description && (
+          <p className="text-gray-500 text-base pb-6">{description}</p>
+        )}
+        <div className="text-sm flex flex-row items-center mr-4 flex-wrap w-full">
+          {tags &&
+            tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block bg-gray-500 rounded-full px-3 py-1 text-xs font-semibold text-gray-800 m-1"
+              >
+                {tag}
+              </span>
+            ))}
+          {stats.views && (
+            <span className="flex items-center text-xs font-semibold text-gray-500 m-1">
+              <Eye height="1rem" />
+              <span>{stats.views}</span>
+            </span>
+          )}
+          <span className="flex-grow" />
+          {url && (
+            <a href={url} target="_blank" rel="noreferrer">
+              <div
+                className="fill-current rounded-full transform duration-200
+                  items-center justify-center flex text-gray-600 hover:text-pink-600 
+                  w-8 h-8 hover:bg-gray-700
+                  "
+              >
+                <ExternalLink height="1rem" />
+              </div>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -69,12 +82,16 @@ Card.propTypes = {
   url: PropTypes.string.isRequired,
   imgSrc: PropTypes.string,
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  description: PropTypes.string,
+  tags: PropTypes.arrayOf(PropTypes.string),
+  stats: PropTypes.arrayOf(PropTypes.string),
 };
 
 Card.defaultProps = {
   imgSrc: null,
+  description: "",
+  tags: [],
+  stats: [],
 };
 
 export default Card;

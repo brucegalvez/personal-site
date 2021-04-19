@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import getDataFromGithub from "../utils/getDataFromGithub";
+import getDataFromBehance from "../utils/getDataFromBehance";
 import useWindowSize from "../hooks/useWindowSize";
 import Header from "../components/header";
 import AppBar from "../components/containers/appBar";
@@ -16,10 +18,11 @@ import contents from "../contents";
 
 export async function getStaticProps() {
   const repositories = await getDataFromGithub();
-  return { props: { repositories } };
+  const behanceProjects = await getDataFromBehance();
+  return { props: { repositories, behanceProjects } };
 }
 
-const HomePage = (repositories) => {
+const HomePage = ({ repositories, behanceProjects }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [language, setLanguage] = useState("en");
   const { width } = useWindowSize(true);
@@ -27,10 +30,6 @@ const HomePage = (repositories) => {
   useEffect(() => {
     if (width > 768) setIsDrawerOpen(false);
   }, [width]);
-
-  // useEffect(() => {
-  //   console.log("??", repositories.repositories.nodes); // Github data
-  // }, []);
 
   return (
     <div className="bg-gray-800 font-mono text-gray-200">
@@ -53,13 +52,22 @@ const HomePage = (repositories) => {
       <SoftwareProjects
         language={language}
         contents={contents}
-        repositories={repositories.repositories.nodes}
+        repositories={repositories.nodes}
       />
-      <CreativeProjects language={language} contents={contents} />
+      <CreativeProjects
+        language={language}
+        contents={contents}
+        projects={behanceProjects}
+      />
       <Contact language={language} contents={contents} />
       <Footer footerText={contents.mainTexts.footer[language]} />
     </div>
   );
+};
+
+HomePage.propTypes = {
+  repositories: PropTypes.shape().isRequired,
+  behanceProjects: PropTypes.shape().isRequired,
 };
 
 export default HomePage;

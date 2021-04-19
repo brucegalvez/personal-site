@@ -7,7 +7,7 @@ const SoftwareProjects = ({ language, contents, repositories }) => (
     <h2 className="md:text-2xl text-xl mb-4 text-center">
       {contents.mainTexts.sectionTitles[1][language]}
     </h2>
-    <div className="grid gap-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+    <div className="grid gap-4 xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 mb-8">
       {repositories
         ?.filter(({ id }) =>
           [
@@ -29,6 +29,15 @@ const SoftwareProjects = ({ language, contents, repositories }) => (
           />
         ))}
     </div>
+    <a
+      href="https://www.github.com/brucegalvez"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <p className="md:text-lg text-base text-center w-full hover:underline">
+        See my other software projects
+      </p>
+    </a>
   </Section>
 );
 

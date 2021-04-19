@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start"
   },
   "repository": {
@@ -21,14 +22,18 @@
   "homepage": "https://github.com/brucegalvez/brucegalvez.com-v2#readme",
   "dependencies": {
     "@tailwindui/react": "^0.1.1",
+    "autoprefixer": "^10.2.4",
     "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "next": "^10.0.5",
+    "postcss": "^8.2.6",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-feather": "^2.0.9",
     "react-transition-group": "^4.4.1"
   },
   "devDependencies": {
@@ -39,6 +44,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^2.0.3"
   }
 }
