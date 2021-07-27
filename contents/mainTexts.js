@@ -33,22 +33,8 @@ export default {
     ],
   },
   aboutMe: {
-    es: `Me gradué como comunicador, pero durante mi 
-  carrera me matriculé en cursos de distintas facultades y pude
-  aprender un poco de distintos campos. Uno de ellos fue un curso de
-  Programación Orientada a Objetos en Java, en el cual aprendí a programar
-  y adquirí confianza para continuar aprendiendo desarrollo web de
-  forma autodidacta. Tengo experiencia en Project Management, Metodologías
-  Ágiles, Investigación, Marketing y Branding, pero lo que realmente me
-  apasiona es aprender de temas relacionados a ciencia y tecnología.`,
-    en: `I majored in Communication Sciences, but I was able to
-    assist to classes from different faculties and learn a little bit 
-    from different fields. One of these classes was 
-    an Object-Oriented Programming in Java, in which I learned to 
-    code and gained the confidence to learn web development on my own.
-    I have experience in Project Management, Agile Methodologies,
-    Research, Marketing, and Branding, but what I'm really passionate 
-    about is learning about science and technology.`,
+    es: `Hola, soy @brucegalvez, un desarrollador de software con experiencia en desarrollo web full-stack con base en Lima-Perú. Tengo habilidades en gestión de proyectos, metodologías ágiles, investigación, marketing y branding. Me apasiona la ciencia, la tecnología y los gatos de Internet.`,
+    en: `Hi, I'm @brucegalvez, a software developer with experience in full-stack web development based in Lima-Peru. I have skills in project management, agile methodologies, research, marketing, and branding. I'm passionate about science, technology, and internet cats.`,
   },
   mastheadTexts: {
     hello: { es: "Hola, me llamo", en: "Hi, my name is" },
