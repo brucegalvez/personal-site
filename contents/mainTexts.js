@@ -33,8 +33,8 @@ export default {
     ],
   },
   aboutMe: {
-    es: `Hola, soy @brucegalvez, un desarrollador de software con experiencia en desarrollo web full-stack con base en Lima-Perú. Tengo habilidades en gestión de proyectos, metodologías ágiles, investigación, marketing y branding. Me apasiona la ciencia, la tecnología y los gatos de Internet.`,
-    en: `Hi, I'm @brucegalvez, a software developer with experience in full-stack web development based in Lima-Peru. I have skills in project management, agile methodologies, research, marketing, and branding. I'm passionate about science, technology, and internet cats.`,
+    es: `Hola, soy @brucegalvez, un desarrollador de software con experiencia en desarrollo web full-stack con base en Lima-Perú. Tengo habilidades en gestión de proyectos, metodologías ágiles, investigación y marketing. Me apasiona la ciencia, la tecnología y los gatos de Internet.`,
+    en: `Hi, I'm @brucegalvez, a software developer with experience in full-stack web development based in Lima-Peru. I have skills in project management, agile methodologies, research and marketing. I'm passionate about science, technology, and internet cats.`,
   },
   mastheadTexts: {
     hello: { es: "Hola, me llamo", en: "Hi, my name is" },

@@ -5,23 +5,24 @@ const scrapeBehanceProfile = async () => {
   try {
     const { data } = await axios.get("http://behance.net/brucegalvez");
     const $ = cheerio.load(data);
-    const projects = $(".ProjectCoverNeue-root-166")
+    const projects = $(".ProjectCoverNeue-root-2lV")
       .toArray()
       .map((project) => {
         const sel = $(project);
-        const imgSrc = sel.find(".ProjectCoverNeue-image-1MZ").attr("src");
+        const imgSrc = sel.find(".ProjectCoverNeue-image-13g").attr("src");
         const title = sel.find(".Title-title-3nk").html();
-        const url = sel.find(".ProjectCoverNeue-coverLink-102").attr("href");
+        const url = sel.find(".js-project-link").attr("href");
         const stats = sel
           .find(".Stats-stats-1iI > span")
           .toArray()
           .map((stat) => $(stat).text());
-        return {
+        const res = {
           imgSrc,
           title,
           stats: { likes: stats[0], views: stats[1] },
           url,
         };
+        return res;
       });
     // let projects = [];
     // projectsRaw.forEach(async (projectRaw) => {
