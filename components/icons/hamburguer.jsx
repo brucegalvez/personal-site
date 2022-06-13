@@ -1,6 +1,13 @@
+import styled from "styled-components";
+
+const StyledHamburguerIcon = styled.div`
+  display: inline-block;
+  cursor: pointer;
+`;
+
 const HamburguerIcon = ({ isOpen, openFunc, className, style }) => {
   return (
-    <div
+    <StyledHamburguerIcon
       className={`inline-block cursor-pointer ${className}`}
       style={style}
       onClick={() => {
@@ -21,7 +28,7 @@ const HamburguerIcon = ({ isOpen, openFunc, className, style }) => {
           ></div>
         );
       })}
-    </div>
+    </StyledHamburguerIcon>
   );
 };
 export default HamburguerIcon;

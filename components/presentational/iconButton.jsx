@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const StyledIconButton = styled.div`
+  transition-duration: 200ms;
+  color: #4b5563;
+  width: 3rem;
+  fill: currentColor;
+  :hover {
+    color: ${({ theme }) => theme.colors.secondary.main};
+  }
+`;
 
 const IconButton = ({ children, href }) => (
   <a href={href} target="_blank" rel="noreferrer">
-    <div
-      className="fill-current transform duration-200 
-        text-gray-600 hover:text-pink-500 w-12"
-    >
-      {children}
-    </div>
+    <StyledIconButton>{children}</StyledIconButton>
   </a>
 );
 

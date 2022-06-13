@@ -5,17 +5,25 @@ const getGithubRepos = async () => {
     const { data } = await axios.post(
       "https://api.github.com/graphql",
       {
-        query: `{ user (login: "brucegalvez") {
-        repositories (first: 20, privacy: PUBLIC, isFork: false) {
-          nodes {
-            id
-            name
-            description
-            url
-            languages (first:3) {
+        query: `{
+          user (login: "brucegalvez") {
+            repositories (first: 20, privacy: PUBLIC, isFork: false) {
               nodes {
+                id
                 name
-        } } } } } }
+                description
+                openGraphImageUrl
+                url
+                repositoryTopics (first: 3) {
+                  nodes { topic { name } }
+                }
+                languages (first: 3) {
+                  nodes { name, color } 
+                } 
+              } 
+            } 
+          } 
+        }
       `,
       },
       { headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` } }

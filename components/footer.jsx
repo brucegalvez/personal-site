@@ -1,9 +1,19 @@
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const StyledFooter = styled.footer`
+  display: flex;
+  padding-bottom: 1rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  justify-content: center;
+`;
 
 const Footer = ({ footerText }) => (
-  <footer className="pb-4 text-gray-600 text-sm flex justify-center">
+  <StyledFooter>
     <p>{footerText}</p>
-  </footer>
+  </StyledFooter>
 );
 
 Footer.propTypes = {

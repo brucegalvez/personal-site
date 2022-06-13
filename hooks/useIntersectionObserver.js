@@ -3,7 +3,7 @@ import { useEffect } from "react";
 // We pass refs to the observer so we can access
 // the actual reference to the dom node we are targeting
 export default function useIntersectionObserver({
-  refs,
+  selectors,
   callback,
   options = {
     rootMargin: "0px",
@@ -23,8 +23,10 @@ export default function useIntersectionObserver({
       });
     }, options);
 
-    refs.forEach((ref) => {
-      observer.observe(ref.current);
+    selectors.forEach((selector) => {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      observer.observe(el);
     });
 
     // Cleanup when the component unmnounts

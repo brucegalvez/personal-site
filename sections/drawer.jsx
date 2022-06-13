@@ -1,6 +1,13 @@
 import { Transition } from "@tailwindui/react";
 import PropTypes from "prop-types";
-import TextButton from "../presentational/textButton";
+import styled from "styled-components";
+import TextButton from "../components/presentational/textButton";
+
+const StyledDrawer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Drawer = ({ isDrawerOpen, sections, language }) => (
   <Transition
@@ -15,7 +22,7 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
     leaveFrom="translate-x-0"
     leaveTo="translate-x-full"
   >
-    <div className="flex items-center flex-col">
+    <StyledDrawer>
       {sections.map(({ id, en, es }) => (
         <a
           key={id}
@@ -27,7 +34,7 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
         </a>
       ))}
       <TextButton text="Resume" action={() => window.open("cv.pdf")} />
-    </div>
+    </StyledDrawer>
   </Transition>
 );
 
