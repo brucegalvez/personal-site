@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { ExternalLink, Eye } from "react-feather";
 import styled from "styled-components";
