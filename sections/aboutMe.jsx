@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledAboutMe = styled.section`
@@ -79,23 +78,18 @@ const StyledAboutMe = styled.section`
   }
 `;
 
-const AboutMe = ({ language, contents }) => (
-  <StyledAboutMe id={contents.mainTexts.sectionTitles[0].id}>
+const AboutMe = ({ bio, avatarUrl }) => (
+  <StyledAboutMe id="aboutMe">
     <div className="container">
-      <h2>{contents.mainTexts.sectionTitles[0][language]}</h2>
+      <h2>About me</h2>
       <div className="content">
-        <p className="body">{contents.mainTexts.aboutMe[language]}</p>
+        <p className="body">{bio}</p>
         <div className="imageWrapper">
-          <img src="/profile_picture.jpg" alt="profile_picture" />
+          <img src={avatarUrl} alt="profile_picture" />
         </div>
       </div>
     </div>
   </StyledAboutMe>
 );
-
-AboutMe.propTypes = {
-  language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.shape().isRequired,
-};
 
 export default AboutMe;

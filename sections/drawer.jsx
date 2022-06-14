@@ -9,7 +9,7 @@ const StyledDrawer = styled.div`
   align-items: center;
 `;
 
-const Drawer = ({ isDrawerOpen, sections, language }) => (
+const Drawer = ({ isDrawerOpen }) => (
   <Transition
     show={isDrawerOpen}
     className="flex fixed items-center justify-center z-10
@@ -23,14 +23,14 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
     leaveTo="translate-x-full"
   >
     <StyledDrawer>
-      {sections.map(({ id, en, es }) => (
+      {[].map(({ id, en }) => (
         <a
           key={id}
           href={`#${id}`}
           className="text-center my-8 cursor-pointer no-underline
                   transform duration-200 hover:underline hover:text-pink-500"
         >
-          {language === "en" ? en : es}
+          {en}
         </a>
       ))}
       <TextButton text="Resume" action={() => window.open("cv.pdf")} />
@@ -40,8 +40,6 @@ const Drawer = ({ isDrawerOpen, sections, language }) => (
 
 Drawer.propTypes = {
   isDrawerOpen: PropTypes.bool.isRequired,
-  sections: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  language: PropTypes.oneOf(["es", "en"]).isRequired,
 };
 
 export default Drawer;

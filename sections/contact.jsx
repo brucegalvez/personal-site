@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import IconButton from "../components/presentational/iconButton";
 import TwitterIcon from "../components/icons/twitter";
@@ -30,10 +29,10 @@ const StyledContact = styled.section`
   }
 `;
 
-const Contact = ({ language, contents }) => (
-  <StyledContact id={contents.mainTexts.sectionTitles[3].id}>
+const Contact = () => (
+  <StyledContact id="contact">
     <div className="container">
-      <h2 className="title">{contents.mainTexts.sectionTitles[3][language]}</h2>
+      <h2 className="title">Get In Touch</h2>
       <div className="links">
         <IconButton href="https://twitter.com/brucegalvez" size="12">
           <TwitterIcon />
@@ -51,10 +50,5 @@ const Contact = ({ language, contents }) => (
     </div>
   </StyledContact>
 );
-
-Contact.propTypes = {
-  language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.shape().isRequired,
-};
 
 export default Contact;

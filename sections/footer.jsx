@@ -1,7 +1,6 @@
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled.div`
   display: flex;
   padding-bottom: 1rem;
   color: #4b5563;
@@ -10,14 +9,10 @@ const StyledFooter = styled.footer`
   justify-content: center;
 `;
 
-const Footer = ({ footerText }) => (
+const Footer = () => (
   <StyledFooter>
-    <p>{footerText}</p>
+    <span>Designed and Built by Rodrigo Bruce Galvez.</span>
   </StyledFooter>
 );
-
-Footer.propTypes = {
-  footerText: PropTypes.string.isRequired,
-};
 
 export default Footer;

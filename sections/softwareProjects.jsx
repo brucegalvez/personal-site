@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Card from "../components/projectCard";
@@ -36,7 +35,7 @@ const StyledSoftwareProjects = styled.section`
   }
 `;
 
-const SoftwareProjects = ({ language, contents, repositories }) => {
+const SoftwareProjects = ({ repositories }) => {
   const filteredRepos = repositories?.filter(({ id }) =>
     [
       "MDEwOlJlcG9zaXRvcnkyNDU1MjI5MDM=",
@@ -48,48 +47,21 @@ const SoftwareProjects = ({ language, contents, repositories }) => {
     ].includes(id)
   );
 
-  // useIntersectionObserver({
-  //   selectors: filteredRepos.map((repo) => `project-${repo.id}`),
-  //   callback: ({ isIntersecting }) => {
-  //     if (isIntersecting) {
-  //       setShowingCard(true);
-  //     } else {
-  //       setShowingCard(false);
-  //     }
-  //   },
-  //   options: {
-  //     threshold: [0.5],
-  //   },
-  // });
-
   return (
-    <StyledSoftwareProjects id={contents.mainTexts.sectionTitles[1].id}>
+    <StyledSoftwareProjects id="software">
       <div className="container">
-        <h2 className="title">
-          {contents.mainTexts.sectionTitles[1][language]}
-        </h2>
+        <h2 className="title">Projects</h2>
         <div className="repositories">
           {filteredRepos?.map((repo) => (
             <Card repo={repo} key={repo.id} />
           ))}
         </div>
-        <a
-          href="https://www.github.com/brucegalvez"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <p className="md:text-lg text-base text-center w-full hover:underline">
-            See my other software projects
-          </p>
-        </a>
       </div>
     </StyledSoftwareProjects>
   );
 };
 
 SoftwareProjects.propTypes = {
-  language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.shape().isRequired,
   repositories: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 

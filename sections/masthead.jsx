@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import TextButton from "../components/presentational/textButton";
 
@@ -49,17 +48,22 @@ const StyledMasthead = styled.section`
   }
 `;
 
-const Masthead = ({ language, contents }) => {
-  const [currentLabel, setCurrenLabel] = useState(1);
+const Masthead = () => {
+  const [activeHeadlineIdx, setActiveHeadlineIdx] = useState(0);
   const [isAble, setIsAble] = useState(true);
+  const headlines = [
+    "a Fullstack Web Developer.",
+    "also a Marketer and Designer.",
+    "the walrus. Goo goo g'joob.",
+  ];
 
   const handleMouseOver = () => {
     if (!isAble) return;
     setIsAble(false);
     setTimeout(
       () =>
-        setCurrenLabel((prev) =>
-          prev === contents.mainTexts.labels[language].length - 1 ? 1 : prev + 1
+        setActiveHeadlineIdx((prev) =>
+          prev === headlines.length - 1 ? 0 : prev + 1
         ),
       200
     );
@@ -78,23 +82,17 @@ const Masthead = ({ language, contents }) => {
               onFocus={() => null}
               onMouseOver={handleMouseOver}
             >
-              {contents.mainTexts.labels[language][0] +
-                contents.mainTexts.labels[language][currentLabel]}
+              I am {headlines[activeHeadlineIdx]}
             </h1>
           </div>
         </div>
         <TextButton
-          text={contents.mainTexts.mastheadTexts.cta[language]}
+          text="Send an Email"
           action={() => window.open("mailto:rodrigobrucegalvez@gmail.com")}
         />
       </div>
     </StyledMasthead>
   );
-};
-
-Masthead.propTypes = {
-  language: PropTypes.oneOf(["es", "en"]).isRequired,
-  contents: PropTypes.shape().isRequired,
 };
 
 export default Masthead;

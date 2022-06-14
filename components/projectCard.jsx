@@ -53,7 +53,7 @@ const StyledProjectCard = styled(Card)`
       flex-wrap: wrap;
       align-items: center;
       width: 100%;
-      > .language {
+      > .tag {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -105,7 +105,11 @@ const StyledProjectCard = styled(Card)`
 
 const ProjectCard = ({ repo }) => {
   const [showingCard, setShowingCard] = useState(false);
-  const { url, name, description, languages } = repo;
+  const { url, name, description, languages, repositoryTopics } = repo;
+  const tags = [
+    ...languages?.nodes,
+    ...repositoryTopics?.nodes?.map(({ topic }) => topic),
+  ];
   const id = repo.id.replace(/[^a-zA-Z0-9 ]/g, "");
   const stats = [];
   const imgSrc =
@@ -143,13 +147,15 @@ const ProjectCard = ({ repo }) => {
         <p className="title">{name}</p>
         {description && <p className="description">{description}</p>}
         <div className="data">
-          {languages?.nodes?.map((language) => (
-            <span key={language.name} className="language">
-              <span
-                className="colorCode"
-                style={{ backgroundColor: language.color }}
-              />
-              {language.name}
+          {tags?.map((tag) => (
+            <span key={tag.name} className="tag">
+              {tag.color && (
+                <span
+                  className="colorCode"
+                  style={{ backgroundColor: tag.color }}
+                />
+              )}
+              {tag.name}
             </span>
           ))}
           {stats.views && (

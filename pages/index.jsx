@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import getDataFromGithub from "../utils/getDataFromGithub";
-import getDataFromBehance from "../utils/getDataFromBehance";
 import useWindowSize from "../hooks/useWindowSize";
-import Head from "../components/head";
+import Head from "../sections/head";
 import AppBar from "../sections/appBar";
 import Drawer from "../sections/drawer";
 import LangButtons from "../components/langButtons";
@@ -13,13 +12,11 @@ import MastHead from "../sections/masthead";
 import AboutMe from "../sections/aboutMe";
 import SoftwareProjects from "../sections/softwareProjects";
 import Contact from "../sections/contact";
-import Footer from "../components/footer";
-import contents from "../contents";
+import Footer from "../sections/footer";
 
 export async function getStaticProps() {
-  const repositories = await getDataFromGithub();
-  const behanceProjects = await getDataFromBehance();
-  return { props: { repositories, behanceProjects } };
+  const data = await getDataFromGithub();
+  return { props: { data } };
 }
 
 const StyledIndexPage = styled.div`
@@ -40,7 +37,7 @@ const StyledIndexPage = styled.div`
   }
 `;
 
-const HomePage = ({ repositories }) => {
+const HomePage = ({ data }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [language, setLanguage] = useState("en");
   const { width } = useWindowSize(true);
@@ -51,19 +48,12 @@ const HomePage = ({ repositories }) => {
 
   return (
     <>
-      <Head siteTitle={contents.mainTexts.siteTitle[language]} />
+      <Head />
       <StyledIndexPage>
-        <Drawer
-          isDrawerOpen={isDrawerOpen}
-          sections={contents.mainTexts.sectionTitles}
-          language={language}
-        />
+        <Drawer isDrawerOpen={isDrawerOpen} />
         <LangButtons setLanguage={setLanguage} />
         <header>
-          <AppBar
-            sections={contents.mainTexts.sectionTitles}
-            language={language}
-          />
+          <AppBar />
           <HamburguerIcon
             isOpen={isDrawerOpen}
             openFunc={setIsDrawerOpen}
@@ -71,17 +61,13 @@ const HomePage = ({ repositories }) => {
           />
         </header>
         <main>
-          <MastHead language={language} contents={contents} />
-          <AboutMe language={language} contents={contents} />
-          <SoftwareProjects
-            language={language}
-            contents={contents}
-            repositories={repositories.nodes}
-          />
-          <Contact language={language} contents={contents} />
+          <MastHead />
+          <AboutMe bio={data?.bio} avatarUrl={data?.avatarUrl} />
+          <SoftwareProjects repositories={data?.repositories.nodes} />
+          <Contact />
         </main>
         <footer>
-          <Footer footerText={contents.mainTexts.footer[language]} />
+          <Footer />
         </footer>
       </StyledIndexPage>
     </>
@@ -89,7 +75,7 @@ const HomePage = ({ repositories }) => {
 };
 
 HomePage.propTypes = {
-  repositories: PropTypes.shape().isRequired,
+  data: PropTypes.shape().isRequired,
 };
 
 export default HomePage;

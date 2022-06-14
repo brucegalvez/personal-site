@@ -7,6 +7,8 @@ const getGithubRepos = async () => {
       {
         query: `{
           user (login: "brucegalvez") {
+            bio
+            avatarUrl
             repositories (first: 20, privacy: PUBLIC, isFork: false) {
               nodes {
                 id
@@ -28,7 +30,7 @@ const getGithubRepos = async () => {
       },
       { headers: { Authorization: `bearer ${process.env.GITHUB_TOKEN}` } }
     );
-    return data.data.user.repositories;
+    return data.data.user;
   } catch (error) {
     console.log(error);
     return [];
